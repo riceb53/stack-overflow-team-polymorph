@@ -1,0 +1,14 @@
+<h1>Signup</h1>
+
+    <% if @errors %>
+      <%= @errors%>
+    <% else %>
+
+    <% end %>
+<form method="post" action="/create_user">
+  <input type="text" name="user[user_name]" placeholder="Username">
+  <input type="password" name="user[password]" placeholder="Password">
+  <input type="submit" value="Create">
+</form>
+
+<a href="/login">Already have an account?</a>
