@@ -1,9 +1,14 @@
 
-<<html>
+<html>
 <head>
   <title></title>
 </head>
 <body>
-thing to change
+<form action="/post/question/new" method="post" id="userform">
+    <input type="text" name="title" placeholder="Title" id="userform"> <br> <br>
+  <textarea name="content" form="userform"></textarea>
+  <input type="hidden" name="user_id" value="1">
+    <input type="submit" value="Submit">
+</form>
 </body>
 </html>

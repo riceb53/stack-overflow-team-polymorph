@@ -3,6 +3,26 @@
   <title></title>
 </head>
 <body>
-  <%=@tester_thingy%>
+<%=@question.title%> <br>
+<%= @question.content %>
+
+<%@answers.each do |answer|%>
+<li><%=answer.response%></a></li>
+<li><%=answer.created_at%></a></li>
+<li><%=answer.question_id%></a></li>
+<li><%=answer.user_id%></a></li>
+<%end%>
+
+<br>
+<br>
+
+<textarea name="response" form="userform"></textarea>
+<form action="/post/question" method="post" id="userform">
+<input type="hidden" name="q_id" value="<%= @question.id%>">
+  <input type="submit" value="Submit">
+</form>
+
+
 </body>
 </html>
+

@@ -1,12 +1,11 @@
 
-<h1>HEEYYYYYYYYYY</h1>
+<h1>HAAYYYYYYYYYY</h1>
 
-<%=@hash_tester%>
 
 <%@list.each do |question|%>
-<li><a href="/question/:q_id"><%=question%></a></li>
+<li><a href="/question/<%=question.id%>"><%=question.title%></a></li>
 <%end%>
 
-<a href="/question/<%=@hash_tester[:q_id]%>"> TESTER LINK</a>
+
 <br>
-<a href="/question/new">would you like to add  new question</a>
+<a href="/question/new">would you like to add  new question?</a>

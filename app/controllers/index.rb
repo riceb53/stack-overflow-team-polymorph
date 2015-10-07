@@ -1,11 +1,8 @@
-
+enable :sessions
 
 
 get '/' do
-  # @list = Question.all
-  #this will be a active record request for all the questions
-@list = [1,2,3,4,5,6]
-@hash_tester = {title:'test_1', q_id:'1'}
+  # Question.all
  erb :index
 end
 
@@ -15,12 +12,23 @@ end
 
 
 get '/question/:q_id' do
-  #@question = Question.find(params[:q_id])
-  #@answers = Answer.find_all(question_id: params[:q_id])
+  @question = Question.find(params[:q_id])
+  @answers = Answer.where(question_id: params[:q_id])
   p params
-  @tester_thingy = params[:q_id]
   "Hello World"
   erb :question
 end
 
+post '/post/question' do
+  place_holder = params[:q_id]
+  p params
+  @answer = Answer.create(response: params[:response], question_id: params[:q_id], user_id: 7)
+  redirect "/question/#{place_holder}"
+end
 
+post '/post/question/new' do
+  @question = Question.create(title: params[:title], content: params[:content], user_id: params[:user_id])
+  redirect "/question/#{@question.id}"
+end
+
+# get '/question/'
