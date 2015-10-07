@@ -2,7 +2,7 @@ enable :sessions
 
 
 get '/' do
-  # Question.all
+  @list = Question.all
  erb :index
 end
 

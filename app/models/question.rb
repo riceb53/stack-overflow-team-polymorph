@@ -3,5 +3,5 @@ class Question < ActiveRecord::Base
   has_many :answers
   # Remember to create a migration!
 
-  # validation :title, :content, presence: true
+  validates :title, :content, presence: true
 end
