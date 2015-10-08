@@ -31,8 +31,15 @@ post '/create_user' do
     # @user_name = @errors[:user_name].join(' ')
     # @password = @errors[:password].join(' ')
     erb :new_user
-
-    # we failed validations, we need to re-render the form with our errors
+ # we failed validations, we need to re-render the form with our errors
   end
-
 end
+
+get '/logout' do
+  session.clear
+  redirect '/login'
+end
+
+
+
+
