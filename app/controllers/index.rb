@@ -12,7 +12,7 @@ end
 
 
 get '/question/:q_id' do
-  p params
+
   @question = Question.find(params[:q_id])
   @answers = Answer.where(question_id: params[:q_id])
   erb :question
@@ -22,11 +22,12 @@ post '/post/question' do
   p params
   p session
   place_holder = params[:q_id]
-  # unless session[:user_id] == user.id
-  #   redirect '/login'
-  # end
+if session[:user_id] == nil
+    redirect '/login'
+  else
   @answer = Answer.create(response: params[:response], question_id: params[:q_id], user_id: session[:user_id])
     redirect "/question/#{place_holder}"
+  end
 end
 
 post '/post/question/new' do
