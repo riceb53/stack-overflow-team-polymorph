@@ -9,9 +9,19 @@
 <%@answers.each do |answer|%>
 <li><%=answer.response%></a></li>
 <li><%=answer.created_at%></a></li>
-<li><%=answer.question_id%></a></li>
-<li><%=answer.user_id%></a></li>
+<li>USER: <%=answer.user.user_name%></a></li>
+<li>VOTES: <%=answer.votes.count%></a></li>
+<a href=""></a>
+<form action="/answer/vote/add"  method="get">
+  <input type="hidden" name="answer_id" value="<%=answer.id%>">
+  <br>
+  <input type="submit" value="VOTE UP">
+</form>
+
 <%end%>
+
+
+
 
 <br>
 <br>

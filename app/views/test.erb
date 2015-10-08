@@ -1,0 +1,20 @@
+
+<h1>HAAYYYYYYYYYY</h1>
+
+
+<%@list.each do |question|%>
+<li><a href="/question/<%=question.id%>"><%=question.title%></a></li>
+<li><%=question.votes.count%></li>
+<form action="/question/vote/add"  method="get">
+  <input type="hidden" name="question_id" value="<%=question.id%>">
+  <br>
+  <input type="submit" value="VOTE UP">
+</form>
+<%end%>
+
+
+<br>
+<a href="/question/new">would you like to add  new question?</a>
+
+<br>
+<a href="/login">login</a>
